@@ -37,5 +37,5 @@ void main()
     {
         printf("Invalid Position!!");
     }
-    getch();
+    // getch();
 }
