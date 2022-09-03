@@ -3,41 +3,42 @@
 
 void main()
 {
-    int user, i;
+    int user, i, top = -1, index, val;
     printf("Enter the how many elements you want into the array : ");
     if (user > 0)
     {
         scanf("%d", &user);
-        int max = user;
-        int arr[user], pos;
+
+        int arr[user];
 
         for (i = 0; i < user; i++)
         {
             printf("Enter the %d element: ", i + 1);
             scanf("%d", &arr[i]);
+            top++;
         }
         printf("\nYou Enterd into array is: \n");
-        for (i = 0; i < user; i++)
+        for (i = user - 1; i >= 0; i--)
         {
             printf("%d ", arr[i]);
         }
-        printf("\n\nEnter which position you want to delete ( note : position start's with 1 ): ");
-        scanf("%d", &pos);
-        if (pos > 0 && pos <= user)
+        printf("\n\nEnter which position you want to update ( note : It will Follow LIFO ): ");
+        scanf("%d", &index);
+        printf("Enter the value: ");
+        scanf("%d", &val);
+        if (index <= user && index > 0)
         {
-            for (i = pos; i < user; i++)
-            {
-                arr[i] = arr[i + 1];
-            }
-            printf("\nAfter entering a new element your element of and array is : \n");
-            for (i = 0; i < user - 1; i++)
+
+            arr[top - index + 1] = val;
+            printf("After Updating your array : ");
+            for (i = user - 1; i >= 0; i--)
             {
                 printf("%d ", arr[i]);
             }
         }
         else
         {
-            printf("Invalid Position!!");
+            printf("Invalid Position");
         }
     }
     else
